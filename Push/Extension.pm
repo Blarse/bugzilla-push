@@ -279,6 +279,7 @@ sub _send {
         port     => Bugzilla->params->{'push-port'},
         username => Bugzilla->params->{'push-username'},
         password => Bugzilla->params->{'push-password'},
+        vhost    => $vhost,
     });
 
     # Get a timestamp to include in the message

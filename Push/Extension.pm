@@ -279,6 +279,10 @@ sub _send {
         port     => Bugzilla->params->{'push-port'},
         username => Bugzilla->params->{'push-username'},
         password => Bugzilla->params->{'push-password'},
+        ssl      => Bugzilla->params->{'push-use-ssl'},
+        cacert   => Bugzilla->params->{'push-cacert-path'},
+        key      => Bugzilla->params->{'push-key-path'},
+        cert     => Bugzilla->params->{'push-cert-path'},
         vhost    => $vhost,
     });
 

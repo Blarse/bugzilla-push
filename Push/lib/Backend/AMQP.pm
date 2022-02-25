@@ -64,6 +64,15 @@ sub can_connect {
 
 sub connect {
     my ($self, $params) = @_;
+    my %tls_ctx = (
+        verify => 1,
+        ca_file => $params->{'cacert'},
+    );
+
+    if ($params->{'key'} and $params->{'cert'}) {
+        $tls_ctx{'key_file'} = $params->{'key'},
+        $tls_ctx{'cert_file'} = $params->{'cert'},
+    }
 
     # Make sure we can connect
     $self->can_connect($params);
@@ -76,6 +85,8 @@ sub connect {
         port    => $params->{'port'} || 5672,
         user    => $params->{'username'},
         pass    => $params->{'password'},
+        tls     => $params->{'ssl'},
+        tls_ctx => \%tls_ctx,
         # TODO: Move this/do something useful with the vhost
         vhost   => $params->{'vhost'}   || '/',
         timeout => $params->{'timeout'} || 1,

@@ -126,6 +126,26 @@ use constant get_param_list => (
 #   default => "%type%.removed.%field%"
 #  },
   {
+   name => 'push-use-ssl',
+   type => 'b',
+   default => 0
+  },
+  {
+   name => 'push-cacert-path',
+   type => 't',
+   default => ''
+  },
+  {
+   name => 'push-cert-path',
+   type => 't',
+   default => ''
+  },
+  {
+   name => 'push-key-path',
+   type => 't',
+   default => ''
+  },
+  {
    name => 'push-fail-on-error',
    type => 'b',
    default => 1

@@ -286,6 +286,11 @@ sub bug_interface {
             names  => ['component_id'],
             action => 'recurse',
         },
+        version => {
+            type   => 'string',
+            from   => 'version',
+            action => 'none',
+        },
         dupe_of => {
             type   => 'int',
             from   => 'dup_id',
